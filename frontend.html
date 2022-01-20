@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Listar Pokemons</title>
+
+    <!-- Css-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mt-2">
+
+            <img src="img/pessoas.jpeg" height="60px" class="navbar-brand rounded-circle">
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav mr-auto">
+                    <span class="navbar-text">Sistema de Cadastro Pokemon World:</span>
+
+                    <a class="nav-item nav-link" href="#" id="linkInicio">Início<span
+                            class="sr-only">(current)</span></a>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Cadastros
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#" id="linkListarPessoas">Pessoas</a>
+                            <a class="dropdown-item" href="#">Itens</a>
+                            <a class="dropdown-item" href="#">Tipos</a>
+                            <a class="dropdown-item" href="#">Naturezas</a>
+                            <a class="dropdown-item" href="#">Habilidades</a>
+                            <a class="dropdown-item" href="#">Pokemons</a>
+                            <a class="dropdown-item" href="#">Times</a>
+                            <a class="dropdown-item" href="#">Treinadores</a>
+                            <a class="dropdown-item" href="#">Ginásios</a>
+                            <a class="dropdown-item" href="#">Líderes</a>
+                        </div>
+                    </li>
+
+
+
+                </div>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+        </nav>
+
+
+        <div id="corpoDaPagina">
+
+            <div id="conteudoInicial">
+                Bem vindo Mundo Pokemon.
+            </div>
+
+            <!--inclusão de pessoa -->
+            <div class="modal fade" id="modalIncluirPessoa" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Incluir pessoa</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="campoNome">Nome</label>
+                                    <input type="text" class="form-control" id="campoNome" aria-describedby="nomeHelp"
+                                        placeholder="Nome">
+                                    <small id="nomeHelp" class="form-text text-muted">Informe o primeiro nome.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoSobrenome">Sobrenome</label>
+                                    <input type="text" class="form-control" id="campoSobrenome"
+                                        aria-describedby="sobrenomeHelp" placeholder="Sobrenome">
+                                    <small id="sobrenomeHelp" class="form-text text-muted">Informe o sobrenome
+                                        nome.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoCidade">Cidade</label>
+                                    <input type="text" class="form-control" id="campoCidade"
+                                        aria-describedby="CidadeHelp" placeholder="Cidade">
+                                    <small id="CidadeHelp" class="form-text text-muted">Informe a cidade de
+                                        origem.</small>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button id="btIncluirPessoa" type="button" class="btn btn-primary">Incluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- janela modal de inclusão de Item -->
+            <div class="modal fade" id="modalIncluirItem" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Incluir Item</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="campoNome">Nome</label>
+                                    <input type="text" class="form-control" id="campoNome" aria-describedby="nomeHelp"
+                                        placeholder="Nome">
+                                    <small id="nomeHelp" class="form-text text-muted">Informe o item.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoFuncao">Função</label>
+                                    <input type="text" class="form-control" id="campoFuncao"
+                                        aria-describedby="FuncaoHelp" placeholder="Funcao">
+                                    <small id="FuncaoHelp" class="form-text text-muted">Informe a função do
+                                        item.</small>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button id="btIncluirItem" type="button" class="btn btn-primary">Incluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- janela modal de inclusão de Tipo -->
+            <div class="modal fade" id="modalIncluirTipo" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Incluir Tipo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="campoNome">Nome</label>
+                                    <input type="text" class="form-control" id="campoNome" aria-describedby="nomeHelp"
+                                        placeholder="Nome">
+                                    <small id="nomeHelp" class="form-text text-muted">Informe o tipo.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoVantagem">Vantagem</label>
+                                    <input type="text" class="form-control" id="campoVantagem"
+                                        aria-describedby="VantagemHelp" placeholder="Vantagem">
+                                    <small id="VantagemHelp" class="form-text text-muted">Informe a vantagem sobre qual
+                                        o tipo tem.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoDesvantagem">Desvantagem</label>
+                                    <input type="text" class="form-control" id="campoDesvantagem"
+                                        aria-describedby="DesvantagemHelp" placeholder="Desvantagem">
+                                    <small id="DesvantagemHelp" class="form-text text-muted">Informe a desvantagem sobre
+                                        qual o tipo tem.</small>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button id="btIncluirTipo" type="button" class="btn btn-primary">Incluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- janela modal de inclusão de Natureza -->
+            <div class="modal fade" id="modalIncluirNatureza" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Incluir Natureza</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="campoNome">Nome</label>
+                                    <input type="text" class="form-control" id="campoNome" aria-describedby="nomeHelp"
+                                        placeholder="Nome">
+                                    <small id="nomeHelp" class="form-text text-muted">Informe a natureza</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoDescricao">Descricao</label>
+                                    <input type="text" class="form-control" id="campoDescricao"
+                                        aria-describedby="DescricaoHelp" placeholder="Descricao">
+                                    <small id="DescricaoHelp" class="form-text text-muted">Informe a descrição da
+                                        Natureza.</small>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button id="btIncluirNatureza" type="button" class="btn btn-primary">Incluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- janela modal de inclusão de Habilidade -->
+            <div class="modal fade" id="modalIncluirHabilidade" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Incluir Habilidade</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="campoNome">Nome</label>
+                                    <input type="text" class="form-control" id="campoNome" aria-describedby="nomeHelp"
+                                        placeholder="Nome">
+                                    <small id="nomeHelp" class="form-text text-muted">Informe a habilidade.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoDescricao">Descricao</label>
+                                    <input type="text" class="form-control" id="campoDescricao"
+                                        aria-describedby="DescricaoHelp" placeholder="Descricao">
+                                    <small id="DescricaoHelp" class="form-text text-muted">Informe a descrição da
+                                        Habilidade.</small>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button id="btIncluirHabilidade" type="button" class="btn btn-primary">Incluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- janela modal de inclusão de Pokemon -->
+            <div class="modal fade" id="modalIncluirPokemon" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Incluir Pokemon</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="campoNome">Nome</label>
+                                    <input type="text" class="form-control" id="campoNome" aria-describedby="nomeHelp"
+                                        placeholder="Nome">
+                                    <small id="nomeHelp" class="form-text text-muted">Informe nome do Pokemon .</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoTipo">Tipo</label>
+                                    <input type="text" class="form-control" id="campoTipo" aria-describedby="TipoHelp"
+                                        placeholder="Tipo">
+                                    <small id="TipoHelp" class="form-text text-muted">Informe o tipo do Pokemon.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoCategoria">Categoria</label>
+                                    <input type="text" class="form-control" id="campoCategoria"
+                                        aria-describedby="CategoriaHelp" placeholder="Categoria">
+                                    <small id="CategoriaHelp" class="form-text text-muted">Informe a categoria do
+                                        Pokemon.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoNatureza">Natureza</label>
+                                    <input type="text" class="form-control" id="campoNatureza"
+                                        aria-describedby="NaturezaHelp" placeholder="Natureza">
+                                    <small id="NaturezaHelp" class="form-text text-muted">Informe a natureza do
+                                        Pokemon</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoHabilidade">Habilidade</label>
+                                    <input type="text" class="form-control" id="campoHabilidade"
+                                        aria-describedby="HabilidadeHelp" placeholder="Habilidade">
+                                    <small id="HabilidadeHelp" class="form-text text-muted">Informe a habilidade do
+                                        Pokemon.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoItem">Item</label>
+                                    <input type="text" class="form-control" id="campoItem" aria-describedby="ItemHelp"
+                                        placeholder="Item">
+                                    <small id="ItemHelp" class="form-text text-muted">Informe o item com o
+                                        Pokemon</small>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button id="btIncluirPokemon" type="button" class="btn btn-primary">Incluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- janela modal de inclusão de Time -->
+            <div class="modal fade" id="modalIncluirTime" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Incluir Time</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="campoPoke1">Poke1</label>
+                                    <input type="text" class="form-control" id="campoPoke1" aria-describedby="Poke1Help"
+                                        placeholder="Poke1">
+                                    <small id="Poke1Help" class="form-text text-muted">Informe o 1° Pokemon do
+                                        time.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoPoke2">Poke2</label>
+                                    <input type="text" class="form-control" id="campoPoke2" aria-describedby="Poke2Help"
+                                        placeholder="Poke2">
+                                    <small id="Poke2Help" class="form-text text-muted">Informe o 2° Pokemon do
+                                        time.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoPoke3">Poke3</label>
+                                    <input type="text" class="form-control" id="campoPoke3" aria-describedby="Poke3Help"
+                                        placeholder="Poke3">
+                                    <small id="Poke3Help" class="form-text text-muted">Informe o 3° Pokemon do
+                                        time.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoPoke4">Poke4</label>
+                                    <input type="text" class="form-control" id="campoPoke4" aria-describedby="Poke4Help"
+                                        placeholder="Poke4">
+                                    <small id="Poke4Help" class="form-text text-muted">Informe o 4° Pokemon do
+                                        time.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoPoke5">Poke5</label>
+                                    <input type="text" class="form-control" id="campoPoke5" aria-describedby="Poke5Help"
+                                        placeholder="Poke5">
+                                    <small id="Poke5Help" class="form-text text-muted">Informe o 5° Pokemon do
+                                        time.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoPoke6">Poke6</label>
+                                    <input type="text" class="form-control" id="campoPoke6" aria-describedby="Poke6Help"
+                                        placeholder="Poke6">
+                                    <small id="Poke1Help" class="form-text text-muted">Informe o 6° Pokemon do
+                                        time.</small>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button id="btIncluirTime" type="button" class="btn btn-primary">Incluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- janela modal de inclusão de Treinador -->
+            <div class="modal fade" id="modalIncluirTreinador" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Incluir Treinador</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="campoPessoa">Pessoa</label>
+                                    <input type="text" class="form-control" id="campoPessoa"
+                                        aria-describedby="PessoaHelp" placeholder="Pessoa">
+                                    <small id="PessoaHelp" class="form-text text-muted">Informe quem é o
+                                        treinador.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoTime">Time</label>
+                                    <input type="text" class="form-control" id="campoTime" aria-describedby="TimeHelp"
+                                        placeholder="Time">
+                                    <small id="TimeHelp" class="form-text text-muted">Informe o time do
+                                        Treinador</small>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button id="btIncluirTreinador" type="button" class="btn btn-primary">Incluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- janela modal de inclusão de Ginasio -->
+            <div class="modal fade" id="modalIncluirGinasio" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Incluir Ginasio</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="campoNome">Nome</label>
+                                    <input type="text" class="form-control" id="campoNome" aria-describedby="nomeHelp"
+                                        placeholder="Nome">
+                                    <small id="nomeHelp" class="form-text text-muted">Informe o nome do
+                                        Ginásios.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoCidade">Cidade</label>
+                                    <input type="text" class="form-control" id="campoCidade"
+                                        aria-describedby="CidadeHelp" placeholder="Cidade">
+                                    <small id="CidadeHelp" class="form-text text-muted">Informe a cidade em que o
+                                        Ginásio se localiza</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoTipo">Tipo</label>
+                                    <input type="text" class="form-control" id="campoTipo" aria-describedby="TipoHelp"
+                                        placeholder="Tipo">
+                                    <small id="TipoHelp" class="form-text text-muted">Informe o Tipo do ginási.</small>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button id="btIncluirGinasio" type="button" class="btn btn-primary">Incluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- janela modal de inclusão de Lider -->
+            <div class="modal fade" id="modalIncluirLider" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Incluir Lider</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="campoTreinador">Treinador</label>
+                                    <input type="text" class="form-control" id="campoTreinador"
+                                        aria-describedby="TreinadorHelp" placeholder="Treinador">
+                                    <small id="TreinadorHelp" class="form-text text-muted">Informe quem é o
+                                        Líder.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoGinasio">Ginasio</label>
+                                    <input type="text" class="form-control" id="campoGinasio"
+                                        aria-describedby="GinasioHelp" placeholder="Ginasio">
+                                    <small id="GinasioHelp" class="form-text text-muted">Informe o ginásio do qual esse
+                                        treinador é Líder </small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="campoInsignia">Insignia</label>
+                                    <input type="text" class="form-control" id="campoInsignia"
+                                        aria-describedby="InsigniaHelp" placeholder="Insignia">
+                                    <small id="InsigniaHelp" class="form-text text-muted">Informe a Insignia que esse
+                                        treinador dá.</small>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button id="btIncluirLider" type="button" class="btn btn-primary">Incluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="container" id="cadastroPessoas">
+                <h5>Cadastro de Pessoas</h5>
+
+                <!-- link que abre formulário de inclusão de pessoas -->
+                <a class="nav-item nav-link" data-toggle="modal" data-target="#modalIncluirPessoa" href="#"><img
+                        src="img/incluir.png" title="Incluir pessoa"></a>
+
+                <!-- tabela de listagem de pessoas -->
+                <table class="table table-striped table-hover" id="tabelaPessoas">
+                    <thead>
+                        <!-- primeira linha da tabela: títulos -->
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Sobrenome</th>
+                            <th scope="col">Cidade</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaPessoas">
+                        <!-- aqui serão exibidas as pessoas -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container" id="cadastroItem">
+                <h5>Cadastro de Item</h5>
+
+                <!-- link que abre formulário de inclusão de Item -->
+                <a class="nav-item nav-link" data-toggle="modal" data-target="#modalIncluirItem" href="#"><img
+                        src="img/incluir.png" title="Incluir Item"></a>
+
+                <!-- tabela de listagem de Item -->
+                <table class="table table-striped table-hover" id="tabelaItems">
+                    <thead>
+                        <!-- primeira linha da tabela: títulos -->
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Função</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaItens">
+                        <!-- aqui serão exibidas as Itens -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container" id="cadastroTipos">
+                <h5>Cadastro de Tipos</h5>
+
+                <!-- link que abre formulário de inclusão de Tipos -->
+                <a class="nav-item nav-link" data-toggle="modal" data-target="#modalIncluirTipo" href="#"><img
+                        src="img/incluir.png" title="Incluir Tipo"></a>
+
+                <!-- tabela de listagem de Tipos -->
+                <table class="table table-striped table-hover" id="tabelaTipos">
+                    <thead>
+                        <!-- primeira linha da tabela: títulos -->
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Vantagem</th>
+                            <th scope="col">Desvantagem</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaTipos">
+                        <!-- aqui serão exibidas as Tipos -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container" id="cadastroNaturezas">
+                <h5>Cadastro de Naturezas</h5>
+
+                <!-- link que abre formulário de inclusão de Naturezas -->
+                <a class="nav-item nav-link" data-toggle="modal" data-target="#modalIncluirNatureza" href="#"><img
+                        src="img/incluir.png" title="Incluir Natureza"></a>
+
+                <!-- tabela de listagem de Naturezas -->
+                <table class="table table-striped table-hover" id="tabelaNaturezas">
+                    <thead>
+                        <!-- primeira linha da tabela: títulos -->
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaNaturezas">
+                        <!-- aqui serão exibidas as Naturezas -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container" id="cadastroHabilidades">
+                <h5>Cadastro de Habilidades</h5>
+
+                <!-- link que abre formulário de inclusão de Habilidades -->
+                <a class="nav-item nav-link" data-toggle="modal" data-target="#modalIncluirHabilidade" href="#"><img
+                        src="img/incluir.png" title="Incluir Habilidade"></a>
+
+                <!-- tabela de listagem de Habilidades -->
+                <table class="table table-striped table-hover" id="tabelaHabilidades">
+                    <thead>
+                        <!-- primeira linha da tabela: títulos -->
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaHabilidades">
+                        <!-- aqui serão exibidas as Habilidades -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container" id="cadastroPokemons">
+                <h5>Cadastro de Pokemons</h5>
+
+                <!-- link que abre formulário de inclusão de Pokemons -->
+                <a class="nav-item nav-link" data-toggle="modal" data-target="#modalIncluirPokemon" href="#"><img
+                        src="img/incluir.png" title="Incluir Pokemon"></a>
+
+                <!-- tabela de listagem de Pokemons -->
+                <table class="table table-striped table-hover" id="tabelaPokemons">
+                    <thead>
+                        <!-- primeira linha da tabela: títulos -->
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Natureza</th>
+                            <th scope="col">Habilidade</th>
+                            <th scope="col">Item</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaPokemons">
+                        <!-- aqui serão exibidas as Pokemonns -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container" id="cadastroTimes">
+                <h5>Cadastro de Times</h5>
+
+                <!-- link que abre formulário de inclusão de Times -->
+                <a class="nav-item nav-link" data-toggle="modal" data-target="#modalIncluirTime" href="#"><img
+                        src="img/incluir.png" title="Incluir Time"></a>
+
+                <!-- tabela de listagem de Times -->
+                <table class="table table-striped table-hover" id="tabelaTimes">
+                    <thead>
+                        <!-- primeira linha da tabela: títulos -->
+                        <tr>
+                            <th scope="col">Poke1</th>
+                            <th scope="col">Poke2</th>
+                            <th scope="col">Poke3</th>
+                            <th scope="col">Poke4</th>
+                            <th scope="col">Poke5</th>
+                            <th scope="col">Poke6</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaTimes">
+                        <!-- aqui serão exibidas as Times -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container" id="cadastroTreinadores">
+                <h5>Cadastro de Treinadores</h5>
+
+                <!-- link que abre formulário de inclusão de Treinadores -->
+                <a class="nav-item nav-link" data-toggle="modal" data-target="#modalIncluirTreinador" href="#"><img
+                        src="img/incluir.png" title="Incluir Treinador"></a>
+
+                <!-- tabela de listagem de Treinadores -->
+                <table class="table table-striped table-hover" id="tabelaTreinadores">
+                    <thead>
+                        <!-- primeira linha da tabela: títulos -->
+                        <tr>
+                            <th scope="col">Pessoa</th>
+                            <th scope="col">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaTreinadores">
+                        <!-- aqui serão exibidas as Treinadores -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container" id="cadastroGinasios">
+                <h5>Cadastro de Ginasios</h5>
+
+                <!-- link que abre formulário de inclusão de Ginasios -->
+                <a class="nav-item nav-link" data-toggle="modal" data-target="#modalIncluirGinasio" href="#"><img
+                        src="img/incluir.png" title="Incluir Ginasio"></a>
+
+                <!-- tabela de listagem de Ginasios -->
+                <table class="table table-striped table-hover" id="tabelaGinasios">
+                    <thead>
+                        <!-- primeira linha da tabela: títulos -->
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Cidade</th>
+                            <th scope="col">Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaGinasios">
+                        <!-- aqui serão exibidas as Ginasios -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container" id="cadastroLiders">
+                <h5>Cadastro de Liders</h5>
+
+                <!-- link que abre formulário de inclusão de Lideres -->
+                <a class="nav-item nav-link" data-toggle="modal" data-target="#modalIncluirLider" href="#"><img
+                        src="img/incluir.png" title="Incluir Lider"></a>
+
+                <!-- tabela de listagem de Lideres -->
+                <table class="table table-striped table-hover" id="tabelaLideres">
+                    <thead>
+                        <!-- primeira linha da tabela: títulos -->
+                        <tr>
+                            <th scope="col">Treinador</th>
+                            <th scope="col">Ginásio</th>
+                            <th scope="col">Insignia</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaLideres">
+                        <!-- aqui serão exibidas as Lideres -->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Script do jQuery, Popper.js e Bootstrap JS --->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <!--Código do front-->
+    <script src="meuscript.js"></script>
+
+</body>
+
+</html>
